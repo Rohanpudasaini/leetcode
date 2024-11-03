@@ -8,3 +8,13 @@ class Solution(object):
         :type goal: str
         :rtype: bool
         """
+        result = False
+        for _ in s:
+            s = s[1:] + s[0]
+            if s == goal:
+                result = True
+                break
+        return result
+
+solution = Solution()
+print(solution.rotateString('abcdef', 'cdefab')) # True
