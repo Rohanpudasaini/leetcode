@@ -6,7 +6,8 @@ class Solution:
             if num == 1:
                 current_best += 1
             else:
-                previous_best = current_best
+                if current_best > previous_best:
+                    previous_best = current_best
                 current_best = 0
         return max(previous_best, current_best)
         
