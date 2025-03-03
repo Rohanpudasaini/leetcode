@@ -10,6 +10,5 @@ class Solution:
                 right.append(num)
             else:
                 mid.append(num)
-        left.extend(mid)
-        left.extend(right)
-        return left
+
+        return left + mid + right
