@@ -27,11 +27,13 @@ class Solution:
         cur_sum=0
         max_sum=-99999
         for num in nums:
-            cur_sum+=num
-            if cur_sum>max_sum:
-                max_sum=cur_sum
-            if cur_sum<0:
-                cur_sum =0
-        return max_sum
+            if num > max_sum:
+                max_sum = num
+            cur_sum += num
+            if cur_sum > max_sum:
+                max_sum = cur_sum
+            if cur_sum < 0:
+                cur_sum = 0
+        return max_sum 
 
         
