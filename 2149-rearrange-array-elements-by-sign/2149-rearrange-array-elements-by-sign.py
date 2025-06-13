@@ -1,20 +1,20 @@
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
-        left = 0
-        right = 1
+        positive_index = 0
+        negative_index = 1
         length = len(nums)
-        while right <=length-1:
-            if nums[left] > 0 and nums[right]>0:
-                right += 1
-            elif nums[left] < 0 and nums[right] < 0:
-                right += 1
-            elif (nums[left] > 0 and nums[right] < 0) or (nums[left] < 0 and nums[right] > 0):
-                if nums[left] < 0: 
-                    nums[left], nums[right] = nums[right], nums[left]
-                nums[left+1], nums[right] = nums[right], nums[left+1]
+        new_arry = [0] * length
+        for i in range(length):
+            if nums[i] > 0:
+                new_arry[positive_index] = nums[i]
+                positive_index +=2
+            else:
+                new_arry[negative_index] = nums[i]
+                negative_index += 2
+        return new_arry
 
-                left +=2
-                right +=1
+
+        
         return nums
 
             
