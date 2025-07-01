@@ -1,14 +1,21 @@
 class Solution:
+
+    def _transpose(self, matrix:List[List[int]], length:int) -> None:
+        for i in range(length):
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+
     def rotate(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        from copy import deepcopy
-        new_matrix = deepcopy(matrix)
         length = len(matrix)
+        self._transpose(matrix, length)
         for i in range(length):
-            for j in range(length):
-                matrix[j][length-1-i] = new_matrix[i][j]
+            matrix[i].reverse()
+
+
 
                 
         
