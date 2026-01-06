@@ -35,8 +35,6 @@ class Solution:
             if hash_set[num] <= hash_set.get(lowest_element, 1000):
                 lowest_frequency = hash_set[num]
                 lowest_element = num
-        print(hash_set)
-        print(highest_frequency, lowest_frequency)
         return(highest_element, lowest_element)
 
 sol = Solution()
@@ -58,8 +56,12 @@ class ChatSolution:
             if value < lowest_frequency:
                 lowest = key
                 lowest_frequency = value
-        print(hash_set)
         return (highest, lowest)
 
 sol1 = ChatSolution()
 print(sol1.higher_lower_frequency_elements(array))
+
+from collections import Counter
+
+c = Counter(array)
+print(max(c.items(), key= lambda x: x[1]), min(c.items(), key= lambda x: x[1]))
