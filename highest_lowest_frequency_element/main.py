@@ -14,7 +14,8 @@ Explanation: The frequency of 2 is 3, i.e. the highest and the frequency of 3 is
             
 ''' 
 # My solution
-array = [10,5,10,15,10,5]
+# array = [10,5,10,15,10,5,15,5,15,5]
+array = [2,2,3,4,4,2]
 
 class Solution:
     def higher_lower_frequency_elements(self, nums: list[int]) -> tuple[int]:
@@ -36,8 +37,29 @@ class Solution:
                 lowest_element = num
         print(hash_set)
         print(highest_frequency, lowest_frequency)
-        print(highest_element, lowest_element)
+        return(highest_element, lowest_element)
 
 sol = Solution()
 sol.higher_lower_frequency_elements(array)
                 
+# Solution according to chat
+
+class ChatSolution:
+    def higher_lower_frequency_elements(self,nums: list[int]) -> tuple[int]:
+        hash_set = {}
+        lowest_frequency = float("inf")
+        highest_frequency = float("-inf")
+        for num in nums:
+            hash_set[num] = hash_set.get(num,0) + 1
+        for key, value in hash_set.items():
+            if value > highest_frequency:
+                highest = key
+                highest_frequency = value
+            if value < lowest_frequency:
+                lowest = key
+                lowest_frequency = value
+        print(hash_set)
+        return (highest, lowest)
+
+sol1 = ChatSolution()
+print(sol1.higher_lower_frequency_elements(array))
