@@ -34,6 +34,5 @@ def reverse_num(num:int)-> int:
         num = num // 10
         result= result * 10 + digit
 
-    print(result)
-
-reverse_num(12345)
+    return result
+print(reverse_num(12345))
