@@ -35,4 +35,4 @@ def reverse_num(num:int)-> int:
         result= result * 10 + digit
 
     return result
-print(reverse_num(12345))
+print(reverse_num(12304500000))
