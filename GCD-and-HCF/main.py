@@ -21,6 +21,12 @@ def find_GCD_reverse(num1:int, num2:int) -> int:
             return i
     return 1
 
+def find_GCD_Ecludian(num1:int, num2:int) -> int:
+    while num1 != 0:
+        num1, num2 = (num1-num2, num2) if num1 > num2 else (num2-num1, num1)
+    return num2
 
 
-print(find_GCD(16,32))
+
+# print(find_GCD(16,32))
+print(find_GCD_Ecludian(16,2252))
