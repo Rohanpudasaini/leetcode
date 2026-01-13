@@ -21,12 +21,21 @@ def find_GCD_reverse(num1:int, num2:int) -> int:
             return i
     return 1
 
+# Time complexity O(max(num1, num2))
+# Or precisely O(num1+num2)
 def find_GCD_Euclidean(num1:int, num2:int) -> int:
     while num1 != 0:
         num1, num2 = (num1-num2, num2) if num1 > num2 else (num2-num1, num1)
     return num2
 
-
+# Time complexity O(log(min(num1, num2))) such that num1 and num2 >0
+# THis is the most optimal solution as in subtraction we are subtracting little chunks at once, this cause
+# the code higher time to converse to zero if two number are far apart
+# Rather we are using remainder to reduce the size so that it converse quickly
+def find_GCD_Euclidean_Modulo(num1:int, num2:int) -> int:
+    while num1 != 0:
+        num1, num2 = (num1%num2, num2) if num1 > num2 else (num2%num1, num1)
+    return num2
 
 # print(find_GCD(16,32))
 print(find_GCD_Euclidean(52,10))
