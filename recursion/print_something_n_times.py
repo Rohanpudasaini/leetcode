@@ -39,6 +39,13 @@ def factorial(n: int) -> int:
     return n * factorial(n - 1)
 
 
+def print_array_in_reverse(array: list, current: int = 0) -> None:
+    if current == len(array):
+        return
+    print_array_in_reverse(array, current + 1)
+    print(array[current])
+
+
 def reverse_array(array: list, current: int = 0, new_array=[]) -> list:
     if current >= len(array):
         return []
@@ -47,10 +54,12 @@ def reverse_array(array: list, current: int = 0, new_array=[]) -> list:
     return new_array
 
 
+array = [1, 2, 3, 4, 5]
 print_n_times(5)
 print_to_n(5, 0)
 print_n_to_1(5)
 print(sum_up_to_n(4))
 print(factorial(10))
 
-print(reverse_array([1, 2, 3, 4]))
+print_array_in_reverse(array)
+print(reverse_array(array))
