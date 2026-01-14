@@ -25,7 +25,7 @@ def print_n_to_1(num: int):
 
 # Sum of first N number
 def sum_up_to_n(n: int, current: int = 0, sum: int = 0) -> int:
-    if current - 1 == n:
+    if current > n:
         return sum
     return sum_up_to_n(n, current + 1, current + sum)
 
@@ -39,8 +39,18 @@ def factorial(n: int) -> int:
     return n * factorial(n - 1)
 
 
+def reverse_array(array: list, current: int = 0, new_array=[]) -> list:
+    if current >= len(array):
+        return []
+    new_array = reverse_array(array, current + 1, new_array)
+    new_array.append(array[current])
+    return new_array
+
+
 print_n_times(5)
 print_to_n(5, 0)
 print_n_to_1(5)
 print(sum_up_to_n(4))
 print(factorial(10))
+
+print(reverse_array([1, 2, 3, 4]))
