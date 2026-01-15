@@ -54,6 +54,37 @@ def reverse_array(array: list, current: int = 0, new_array=[]) -> list:
     return new_array
 
 
+# check if a string is palindrom or not using recursion
+# Brute force
+def check_palindrom(s: str) -> bool:
+    string_array = list(s)
+    if s == "".join(reverse_array(string_array)):
+        return True
+    return False
+
+
+# Optimal using recursion
+
+
+def is_palindrom(i: int, s: str) -> bool:
+    if i >= len(s) // 2:
+        return True
+    if s[i] != s[len(s) - i - 1]:
+        return False
+    return is_palindrom(i + 1, s)
+
+
+# Write fibonachi number upto N
+def fib(n: int) -> int:
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    num1, num2 = fib(n - 1), fib(n - 2)
+    # print(f"{num1} + {num2}")
+    return num1 + num2
+
+
 array = [1, 2, 3, 4, 5]
 print_n_times(5)
 print_to_n(5, 0)
@@ -63,3 +94,12 @@ print(factorial(10))
 
 print_array_in_reverse(array)
 print(reverse_array(array))
+
+print(check_palindrom("ABA"))
+print(is_palindrom(0, "MADAM"))
+# print(fib(1))
+# print(fib(2))
+# print(fib(3))
+# print(fib(4))
+# print(fib(5))
+print(fib(600))
