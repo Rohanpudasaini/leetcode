@@ -75,12 +75,28 @@ def is_palindrom(i: int, s: str) -> bool:
 
 
 # Write fibonachi number upto N
+hash_map = {}
+
+
 def fib(n: int) -> int:
     if n == 0:
         return 0
     if n == 1:
         return 1
     num1, num2 = fib(n - 1), fib(n - 2)
+    # print(f"{num1} + {num2}")
+    return num1 + num2
+
+
+def fib_with_history(n: int) -> int:
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    num1 = fib(n - 1) if not hash_map.get(n - 1) else hash_map[n - 1]
+    num2 = fib(n - 2) if not hash_map.get(n - 2) else hash_map[n - 2]
+    hash_map[n - 1] = num1
+    hash_map[n - 2] = num2
     # print(f"{num1} + {num2}")
     return num1 + num2
 
@@ -102,4 +118,5 @@ print(is_palindrom(0, "MADAM"))
 # print(fib(3))
 # print(fib(4))
 # print(fib(5))
-print(fib(600))
+print(fib_with_history(40))
+# print(hash_map)
