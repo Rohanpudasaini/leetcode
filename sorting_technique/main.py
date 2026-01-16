@@ -14,8 +14,6 @@ def selection_sort(array: list) -> list:
 
 # Bubble sort
 # Compate two elements and move swap if they are in wrong place
-
-
 def bubble_sort(array: list) -> list:
     n = len(array)
     for i in range(n - 1):
@@ -25,7 +23,19 @@ def bubble_sort(array: list) -> list:
     return array
 
 
-array = [9, 5, 2, 3, 6, 1, 10]
-print(selection_sort(array))
+# Time complexity O(N**2)
+# Space Complexity O(1)
+def insertion_sort(array: list) -> list:
+    for i in range(len(array)):
+        j = i
+        while j > 0 and array[j - 1] > array[j]:
+            array[j], array[j - 1] = array[j - 1], array[j]
+            j -= 1
+    return array
 
-print(bubble_sort(array))
+
+array = [9, 5, 2, 3, 6, 1, 10]
+print(insertion_sort(array))
+# print(selection_sort(array))
+
+# print(bubble_sort(array))
