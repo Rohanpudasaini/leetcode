@@ -34,8 +34,32 @@ def insertion_sort(array: list) -> list:
     return array
 
 
-array = [9, 5, 2, 3, 6, 1, 10]
-print(insertion_sort(array))
+def merge(array, left, mid, right):
+    print(array[left:mid])
+    print(array[mid:right])
+    while left <= mid and mid <= right:
+        if array[left] > array[mid]:
+            array[left], array[mid] = array[mid], array[left]
+            left += 1
+        elif array[left] == array[mid]:
+            left += 1
+            mid += 1
+        else:
+            mid += 1
+    return
+
+
+def merge_sort(array: list, left, right):
+    if left < right:
+        mid = (left + right) // 2
+        merge_sort(array, left, mid)
+        merge_sort(array, mid + 1, right)
+        merge(array, left, mid, right)
+
+
+array = [9, 5, 2, 3]
+merge_sort(array, 0, len(array))
+# print(insertion_sort(array))
 # print(selection_sort(array))
 
 # print(bubble_sort(array))
