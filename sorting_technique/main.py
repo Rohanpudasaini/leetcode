@@ -59,7 +59,7 @@ def merge_sort(array: list, left, right):
 
 array = [9, 5, 2, 3]
 merge_sort(array, 0, len(array))
-# print(insertion_sort(array))
-# print(selection_sort(array))
+print(insertion_sort(array))
+print(selection_sort(array))
 
-# print(bubble_sort(array))
+print(bubble_sort(array))
