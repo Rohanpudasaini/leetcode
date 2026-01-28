@@ -1,12 +1,12 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        sorted_arry = sorted(nums)
-        for i in range(len(nums)-1):
-            if nums[i] <= nums[i+1]:
-                continue
-            else:
-                if nums[i+1:] + nums[:i+1] == sorted_arry:
-                    return True
+        cyclic_point = 0
+        for i in range(len(nums) - 1):
+            if nums[i + 1] < nums[i]:
+                cyclic_point += 1
+            if cyclic_point > 1:
                 return False
-        return True
+        if (cyclic_point != 0 and nums[len(nums)-1] <= nums[0]) or cyclic_point==0:
+            return True
+        return False
         
